@@ -6,19 +6,34 @@ import jakarta.persistence.*;
 public class Carro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int cod;
+    public int idCarro;
 
     public String nome;
     public String cor;
     public double valor;
 
     @ManyToOne
-    public Cliente cli; //nome confuso de cliente
+    public Cliente cliente;
 
     public Carro(){}
 
-    public Carro(String n, String c, double v, Cliente cl){
-        nome=n; cor=c; valor=v; cli=cl;
+    public Carro(String nome, String cor, double valor, Cliente cliente){
+        this.nome = nome;
+        this.cor = cor;
+        this.valor = valor;
+        this.cliente = cliente;
+    }
+
+    @Override
+    public String toString() {
+        return "Carro{" +
+                "idCarro=" + idCarro +
+                ", nome='" + nome + '\'' +
+                ", cor='" + cor + '\'' +
+                ", valor=" + valor +
+                ", cliente=" + cliente +
+                '}';
     }
 }
+
 

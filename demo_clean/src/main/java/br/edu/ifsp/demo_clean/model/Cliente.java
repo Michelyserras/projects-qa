@@ -7,16 +7,24 @@ import java.util.*;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int idd;
+    public int idCliente;
 
-    public String nm;
+    public String nomeCliente;
 
-    @OneToMany(mappedBy="cli")
-    public List<Carro> carros = new ArrayList<>();
+    @OneToMany(mappedBy="cliente")
+    public List<Carro> carrosCliente = new ArrayList<>();
 
     public Cliente(){}
+    public Cliente(String nomeCliente){
+        this.nomeCliente = nomeCliente;
+    }
 
-    public Cliente(String n){
-        nm=n;
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "idCliente=" + idCliente +
+                ", nomeCliente='" + nomeCliente + '\'' +
+                ", carrosCliente=" + carrosCliente +
+                '}';
     }
 }

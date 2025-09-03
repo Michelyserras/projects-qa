@@ -18,7 +18,7 @@ public class SecurityConfig {
                     "/h2-console/**",
                     "/api/**"      
                 ).permitAll()
-                .anyRequest().authenticated() 
+                .anyRequest().permitAll()
             )
             .csrf(csrf -> csrf.disable())
             .headers(headers -> headers
